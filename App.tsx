@@ -1,20 +1,13 @@
-import React, { Component } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React from 'react';
+import {SafeAreaView, StatusBar} from 'react-native';
+import CalculatorScreen from './src/screens/CalculatorScreen';
+import { styles } from './src/theme/appTheme';
 
-export default class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text> Pantalla Principal </Text>
-      </View>
-    )
-  }
+export default function App() {
+  return (
+    <SafeAreaView style={styles.fondo}>
+      <StatusBar backgroundColor='black' barStyle='light-content'/>
+      <CalculatorScreen />
+    </SafeAreaView>
+  );
 }
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#2f91ed',
-      
-    },
-});
