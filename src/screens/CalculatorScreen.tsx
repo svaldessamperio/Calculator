@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import KeyboardRow from '../components/KeyboardRow';
 import { styles } from '../theme/appTheme';
+import SpecialKeyboardRow from '../components/SpecialKeyboardRow';
 
 export default function CalculatorScreen() {
   return (
@@ -35,6 +36,12 @@ export default function CalculatorScreen() {
            { label: '2', type: 0 },
            { label: '3', type: 0 },
            { label: '+', type: 1 },   
+          ]}
+        />
+        <SpecialKeyboardRow buttons={
+          [{ label: '0', type: 0 },
+           { label: '.', type: 0 },
+           { label: '=', type: 1 },   
           ]}
         />
       </View>
