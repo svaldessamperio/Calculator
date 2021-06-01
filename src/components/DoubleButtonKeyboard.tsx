@@ -36,17 +36,14 @@ const styles = StyleSheet.create({
 
     button: {
         borderRadius: 100,
-        // backgroundColor: "#a5a5a5",
         height: 80,
         width: 180,
         alignItems: 'center',
         justifyContent: 'center',
-        // left: 50,
     },
     textButton: {
         fontSize: 40,
         fontWeight:'bold',
-        // color: 'black',
         alignSelf: 'flex-start',
         left: 30
     },
