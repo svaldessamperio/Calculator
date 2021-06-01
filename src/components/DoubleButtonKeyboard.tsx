@@ -25,32 +25,29 @@ export default function DoubleButtonKeyboard(props:any) {
             <View style={[styles.button, {backgroundColor}] }>
                 <Text style={[styles.textButton,{color}]}>{label}</Text>
             </View>
-            <View style={[styles.button, {backgroundColor}] }>
-                {/* <Text style={[styles.textButton,{color}]}>{label}</Text> */}
-            </View>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     buttonContainer: {
-        flexDirection: 'row',
         padding: 10,
-        backgroundColor: '#333333',
-        borderRadius: 100,
     },
 
     button: {
         borderRadius: 100,
         // backgroundColor: "#a5a5a5",
         height: 80,
-        width: 80,
+        width: 180,
         alignItems: 'center',
         justifyContent: 'center',
+        // left: 50,
     },
     textButton: {
         fontSize: 40,
         fontWeight:'bold',
         // color: 'black',
+        alignSelf: 'flex-start',
+        left: 30
     },
 });

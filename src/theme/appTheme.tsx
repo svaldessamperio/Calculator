@@ -22,6 +22,5 @@ export const styles = StyleSheet.create({
     keyboardMainContainer: {
         flexDirection: 'column',
         alignItems: 'flex-start',
-        padding: 10,
     },
 });
