@@ -1,8 +1,9 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { buttonParameters } from '../Interfaces/buttonCalc';
 
-export default function DoubleButtonKeyboard(props:any) {
-    const { label, type } = props;
+export default function DoubleButtonKeyboard(props:buttonParameters) {
+    const { label, type, accion } = props;
     
     const tipos = [
         {
@@ -21,11 +22,11 @@ export default function DoubleButtonKeyboard(props:any) {
     const {color, backgroundColor} = tipos[type];
 
     return (
-        <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.buttonContainer} onPress={()=>accion()}>
             <View style={[styles.button, {backgroundColor}] }>
                 <Text style={[styles.textButton,{color}]}>{label}</Text>
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 

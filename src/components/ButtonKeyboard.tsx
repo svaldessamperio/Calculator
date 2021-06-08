@@ -1,11 +1,6 @@
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-
-interface buttonParameters {
-    label: string;
-    type: number;
-    accion: (numero?:string)=>void;
-}
+import { buttonParameters } from '../Interfaces/buttonCalc';
 
 export default function ButtonKeyboard(props: buttonParameters) {
     const { label, type, accion } = props;

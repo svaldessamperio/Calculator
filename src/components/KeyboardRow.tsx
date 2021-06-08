@@ -1,16 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import ButtonKeyboard from './ButtonKeyboard';
-
-interface buttonCalc {
-    label: string;
-    type: number;
-    accion: () => void;
-}
-
-interface rowParameters {
-    buttons: buttonCalc[];
-}
+import { rowParameters } from '../Interfaces/buttonCalc';
 
 export default function KeyboardRow(props: rowParameters) {
     const {buttons} = props;

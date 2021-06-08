@@ -2,16 +2,17 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import ButtonKeyboard from './ButtonKeyboard';
 import DoubleButtonKeyboard from './DoubleButtonKeyboard';
+import { rowParameters } from '../Interfaces/buttonCalc';
 
-export default function SpecialKeyboardRow(props: any) {
+export default function SpecialKeyboardRow(props: rowParameters) {
     const {buttons} = props;
 
     return (
         <View style= {styles.keyboardContainer}>
             <View style={styles.keyboardRowContainer}>
-                <DoubleButtonKeyboard label={buttons[0].label} type={buttons[0].type}/>
-                <ButtonKeyboard label={buttons[1].label} type={buttons[1].type}/>
-                <ButtonKeyboard label={buttons[2].label} type={buttons[2].type}/>
+                <DoubleButtonKeyboard label={buttons[0].label} type={buttons[0].type} accion={buttons[0].accion}/>
+                <ButtonKeyboard label={buttons[1].label} type={buttons[1].type} accion={buttons[1].accion}/>
+                <ButtonKeyboard label={buttons[2].label} type={buttons[2].type} accion={buttons[2].accion}/>
             </View>
         </View>
     )
