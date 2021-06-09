@@ -14,6 +14,7 @@ export default function CalculatorScreen() {
     setNumero('0');
     setNumeroAnterior('');
     setTipoOperacion('');
+    //
   }
 
   const actualizaNumero = (numberInput:string) => {
