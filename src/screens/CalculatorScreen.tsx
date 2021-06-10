@@ -14,21 +14,39 @@ export default function CalculatorScreen() {
     setNumero('0');
     setNumeroAnterior('');
     setTipoOperacion('');
-    //
   }
 
   const actualizaNumero = (numberInput:string) => {
-    numberInput = (numero.length == 1 && numero === '0' ? '' : numero) + numberInput;
-     setNumero(numberInput);
+
+    //Si el esta empezando la cantidad y arranca con un punto se respeta el cero, si no? se reemplaza
+    if (numero.startsWith('0') && numberInput === '0' && !numero.includes('.')){
+      return;
+    }
+    else if (numero.includes('.') && numberInput === '.'){
+      return;
+    }
+    else if (numero.startsWith('0') && numero.includes('.')){
+      numberInput = numero + numberInput;
+    }
+    else if(numero.startsWith('0') && numberInput != '.'){
+      numberInput = '' + numberInput;
+    }
+    else {
+      numberInput = numero + numberInput;
+    }
+    setNumero(numberInput);
   }
 
   const operar = (operacion:string) => {
-
-    console.log(tipoOperacion);
     
-    if (tipoOperacion != '') {
-      switch (tipoOperacion) {
+    if (operacion != '') {
+      switch (operacion) {
         case '+':
+          if (tipoOperacion !='')
+          {
+            numeroAnterior 
+          }
+          console.log("Entrando al más");
           break;
         case '-':
           break;
@@ -58,8 +76,20 @@ export default function CalculatorScreen() {
 
   return (
     <View style={styles.calculadoraContainer}>
-      <Text style={styles.textoOperaciones}>{numeroAnterior}</Text>
-      <Text style={styles.texto}>{numero}</Text>
+      <Text 
+        style={styles.textoOperaciones} 
+        numberOfLines={1}
+        adjustsFontSizeToFit={true}
+      >
+        {numeroAnterior}
+      </Text>
+      <Text 
+        style={styles.texto}
+        numberOfLines={1}
+        adjustsFontSizeToFit={true}
+      >
+        {numero}
+      </Text>
       <View style= {styles.keyboardMainContainer}>
         <KeyboardRow buttons={
           [{ label: 'AC', type: 2, accion: limpiar},
