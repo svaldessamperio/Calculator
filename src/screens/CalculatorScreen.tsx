@@ -72,6 +72,7 @@ export default function CalculatorScreen() {
             setNumeroAnterior(numNuevo);
           } else {
             setNumeroAnterior(numero);
+            
           }
           break;
         case '-':
