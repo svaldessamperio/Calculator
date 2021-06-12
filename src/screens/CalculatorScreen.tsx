@@ -37,16 +37,42 @@ export default function CalculatorScreen() {
     setNumero(numberInput);
   }
 
+  const cambiarSigno = () => {
+    var numNuevo:string = '';
+
+    if (numero.startsWith('-')) {
+      numNuevo = numero.replace('-','');
+    } else {
+      numNuevo = '-' + numero;
+    }
+
+    setNumero(numNuevo);
+  }
+
+  const btnDelete = () => {
+    var numNuevo:string = '';
+    if ((numero.length == 2 && numero.startsWith('-')) || (numero.length == 1)) {
+      numNuevo = '0';
+    } else {
+      numNuevo = numero.substring(0,numero.length - 1);
+    }
+    setNumero(numNuevo);
+  }
+
   const operar = (operacion:string) => {
-    
+    var numNuevo:string = '';
+
     if (operacion != '') {
       switch (operacion) {
         case '+':
-          if (tipoOperacion !='')
+          if (tipoOperacion != '')
           {
-            numeroAnterior 
+            numNuevo = numeroAnterior + tipoOperacion + numero;
+            console.log("numNuevo: " + numNuevo);
+            setNumeroAnterior(numNuevo);
+          } else {
+            setNumeroAnterior(numero);
           }
-          console.log("Entrando al más");
           break;
         case '-':
           break;
@@ -61,6 +87,8 @@ export default function CalculatorScreen() {
         default:
           break;
       }
+      setNumero('0');
+      setTipoOperacion(operacion);
       //numeroAnterior
       //Convertir Numero anterior a decimal
       //Convertir Numero actual a decimal
@@ -93,8 +121,8 @@ export default function CalculatorScreen() {
       <View style= {styles.keyboardMainContainer}>
         <KeyboardRow buttons={
           [{ label: 'AC', type: 2, accion: limpiar},
-           { label: '+/-', type: 2, accion: limpiar},
-           { label: '%', type: 2, accion: limpiar},
+           { label: '+/-', type: 2, accion: cambiarSigno},
+           { label: 'del', type: 2, accion: btnDelete},
            { label: '/', type: 1, accion: limpiar},
           ]}
         />
